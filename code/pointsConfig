@@ -1,0 +1,70 @@
+[data]
+
+# Path to file with rows containing (x , y) for training:
+path = /home/kacpert/Downloads/syncthing/for_sushil_yuriy/generate_out/b_80000_5
+
+[likelyhood]
+
+# CONFIGURATION FOR MAXIMALIZING LIKELYHOOD 
+
+# In each step of the optimizer, only a portion 
+# portion of the data will be used. The size of 
+# this portion is determined by:
+batch = 2000
+
+# Path to file with rows containig (x , y) for validation:
+valid = /home/kacpert/Downloads/syncthing/for_sushil_yuriy/generate_out/bv_10000_5
+
+# Number of iterations:
+iterations = 250
+
+# Learning rate for the optimizer:
+learningrate = 0.01
+
+# the number of steps between writing
+writeevery = 1
+
+[metropolishastings]
+
+# Number of iterations for the Metropolis Hastings
+# algorithm:
+citerations = 0
+
+# A number of starting iterations will be rejected:
+reject = 0
+
+# The number of steps between writing:
+writeevery = 20
+
+# Determine the change of Gaussian parameters in each iteration:
+dsigma = 0.002
+dxy = 0.002
+dw = 0.002
+
+# Batch size for calculating likelyhood 
+batch = 10000
+
+[global]
+
+# The number of Gaussians is maxp * maxp:
+maxp = 50
+
+# number of points in x , y for density
+nxy = 50
+
+# It is assumed that the original (x , y) is observed
+# at (x' , y') drawn from a gaussian distribution centered
+# on (x , y) and with standard deviation:
+scale = 0.05
+
+# Minimum standard deviation of Gaussians:
+margin = 0.001
+
+# Optimize the weights of the Gaussians:
+weight = yes
+
+# Minimum weight
+weightmargin = 0.0
+
+# Device to use:
+device = cpu
